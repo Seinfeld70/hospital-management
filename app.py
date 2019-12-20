@@ -12,6 +12,8 @@ while(opt != 0):
     print("7. Delete Patient Information.")
     print("8. Make an appointment.")
     print("9. Show appointments.")
+    print("10. Show Tests.")
+    print("11. Show Docs.")
     print("0. Exit")
 
     print("\nYour Choice: ", end='')
@@ -35,5 +37,9 @@ while(opt != 0):
         makeAnAppo()
     elif opt == 9:
         showAppointments()
+    elif opt == 10:
+        showTests()
+    elif opt == 11:
+        showDocs()
     else:
         print("\nWhat the hell did you enter.")

@@ -269,3 +269,36 @@ def showAppointments():
                 print(app)
 
     f.close()
+
+
+def showTests():
+    # should create a file if doesn't already exists to avoid error
+    f = open('tests.json', 'a')
+    f.close()
+
+    fr = open('tests.json', 'r')
+    data = json.loads(fr.read())
+    print('\n\t\tName\t\tPrice\t\tRoom #')
+    for t in data:
+        print("\n\t\t{}\t\t{}\t\t{}".format(
+            t['name'], t['price'], t['roomNum']))
+    fr.close()
+
+
+def showDocs():
+    # should create a file if doesn't already exists to avoid error
+    f = open('doctor.json', 'a')
+    f.close()
+
+    fr = open('doctor.json', 'r')
+    data = json.loads(fr.read())
+    print('\n\tName\t\tSpecialization\t\tTiming\t\tVenue\t\tAvailableDays\t\tAppointments')
+    for d in data:
+        # printing name, spec, and timing
+        print("\n\t{}\t\t{}\t\t\t{} - {}\t\t".format(
+            d['name'], d['specialization'], d['timing']['from'], d['timing']['to']), end='')
+
+        # printing venue, days and appoint
+        print("{}\t\t{} - {}\t\t\t{}".format(d['venue'], d['daysAvailable']
+                                             ['from'], d['daysAvailable']['to'], d['appointments']))
+    fr.close()
